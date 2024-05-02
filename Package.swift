@@ -10,7 +10,10 @@ let package = Package(
         .library(
             name: "FairmaticSDK",
             targets: ["FairmaticSDK"]),
-        .library(name: "FairmaticSDK-Target", targets: ["FairmaticSDK-Target"])
+        .library(
+            name: "FairmaticSDK-Target",
+            targets: ["FairmaticSDK-Target"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", .upToNextMinor(from: "0.15.3")),
@@ -22,7 +25,6 @@ let package = Package(
                       path: "FairmaticSDK.xcframework"),
         .target(name: "FairmaticSDK-Target",
                 dependencies: [
-                    .target(name: "FairmaticSDK"),
                     .product(name: "SQLite", package: "SQLite.swift"),
                     .product(name: "AWSSQS", package: "aws-sdk-ios-spm"),
                     .product(name: "AWSCore", package: "aws-sdk-ios-spm")
