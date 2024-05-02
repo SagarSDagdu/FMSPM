@@ -13,19 +13,19 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", .upToNextMinor(from:"0.15.3")),
-        .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm.git", .upToNextMinor(from: "2.34.2"))
+        .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm.git", 
+            .upToNextMinor(from: "2.34.2"))
     ],
     targets: [
         .binaryTarget(name: "FairmaticSDKBinary",
                       path: "FairmaticSDK.xcframework"),
-        
-            .target(name: "FairmaticSDK",
-                    dependencies: [
-                        .target(name: "FairmaticSDKBinary"),
-                        .product(name: "SQLite", package: "SQLite.swift"),
-                        .product(name: "AWSSQS", package: "aws-sdk-ios-spm"),
-                        .product(name: "AWSCore", package: "aws-sdk-ios-spm")
-                    ]
-                   )
+        .target(name: "FairmaticSDK",
+                dependencies: [
+                    .target(name: "FairmaticSDKBinary"),
+                    .product(name: "SQLite", package: "SQLite.swift"),
+                    .product(name: "AWSSQS", package: "aws-sdk-ios-spm"),
+                    .product(name: "AWSCore", package: "aws-sdk-ios-spm")
+                ]
+               )
     ]
 )
