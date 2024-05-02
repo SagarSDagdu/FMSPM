@@ -8,9 +8,6 @@ let package = Package(
     platforms: [.iOS(.v13)],
     products: [
         .library(
-            name: "FairmaticSDK",
-            targets: ["FairmaticSDK"]),
-        .library(
             name: "FairmaticSDK-Target",
             targets: ["FairmaticSDK-Target"]
         )
