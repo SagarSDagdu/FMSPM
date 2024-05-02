@@ -19,13 +19,13 @@ let package = Package(
         .binaryTarget(name: "FairmaticSDKBinary",
                       path: "FairmaticSDK.xcframework"),
         
-        .target(name: "FairmaticSDK",
-                dependencies: [
-                    .target(name: "FairmaticSDKBinary"),
-                    .product(name: "SQLite", package: "SQLite.swift"),
-                    .product(name: "AWSSQS", package: "aws-sdk-ios-spm"),
-                    .product(name: "AWSCore", package: "aws-sdk-ios-spm")
-                ]
-               )
+            .target(name: "FairmaticSDK",
+                    dependencies: [
+                        .target(name: "FairmaticSDKBinary"),
+                        .product(name: "SQLite", package: "SQLite.swift"),
+                        .product(name: "AWSSQS", package: "aws-sdk-ios-spm"),
+                        .product(name: "AWSCore", package: "aws-sdk-ios-spm")
+                    ]
+                   )
     ]
 )
