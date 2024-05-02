@@ -12,8 +12,8 @@ let package = Package(
             targets: ["FairmaticSDK", "FairmaticSDKTarget"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/stephencelis/SQLite.swift.git", .upToNextMinor(from:"0.15.3")),
-        .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm.git", 
+        .package(url: "https://github.com/stephencelis/SQLite.swift.git", .upToNextMinor(from: "0.15.3")),
+        .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
             .upToNextMinor(from: "2.34.2"))
     ],
     targets: [
@@ -25,7 +25,14 @@ let package = Package(
                     .product(name: "SQLite", package: "SQLite.swift"),
                     .product(name: "AWSSQS", package: "aws-sdk-ios-spm"),
                     .product(name: "AWSCore", package: "aws-sdk-ios-spm")
-                ]
-               )
+                ],
+                linkerSettings: [.linkedFramework("CoreLocation"),
+                                 .linkedFramework("CoreMotion"),
+                                 .linkedFramework("CoreTelephony"),
+                                 .linkedFramework("SystemConfiguration"),
+                                 .linkedFramework("Accelerate"),
+                                 .linkedLibrary("z"),
+                                 .linkedLibrary("sqlite3"),
+                                ])
     ]
 )
