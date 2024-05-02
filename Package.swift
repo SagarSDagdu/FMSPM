@@ -9,7 +9,8 @@ let package = Package(
     products: [
         .library(
             name: "FairmaticSDK",
-            targets: ["FairmaticSDKTarget"]),
+            targets: ["FairmaticSDK"]),
+        .library(name: "FairmaticSDK-Target", targets: ["FairmaticSDK-Target"])
     ],
     dependencies: [
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", .upToNextMinor(from: "0.15.3")),
@@ -19,7 +20,7 @@ let package = Package(
     targets: [
         .binaryTarget(name: "FairmaticSDK",
                       path: "FairmaticSDK.xcframework"),
-        .target(name: "FairmaticSDKTarget",
+        .target(name: "FairmaticSDK-Target",
                 dependencies: [
                     .target(name: "FairmaticSDK"),
                     .product(name: "SQLite", package: "SQLite.swift"),
@@ -33,6 +34,6 @@ let package = Package(
                                  .linkedFramework("Accelerate"),
                                  .linkedLibrary("z"),
                                  .linkedLibrary("sqlite3"),
-                                ])
+                ])
     ]
 )
