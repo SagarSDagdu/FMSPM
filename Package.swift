@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "FairmaticSDK",
-            targets: ["FairmaticSDK", "FairmaticSDKTarget"]),
+            targets: ["FairmaticSDKTarget"]),
     ],
     dependencies: [
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", .upToNextMinor(from: "0.15.3")),
