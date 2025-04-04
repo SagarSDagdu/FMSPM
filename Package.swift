@@ -33,9 +33,6 @@ let package = Package(
                     .linkedLibrary("z"),
                     .linkedLibrary("sqlite3"),
                     .linkedLibrary("c++"),
-                    .unsafeFlags([
-                        "-ObjC", "-lC++"
-                    ])
                 ]
                ),
         
